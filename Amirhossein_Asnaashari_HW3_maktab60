@@ -1,0 +1,25 @@
+import random
+
+class Tolerance:
+    def init(self, name, height, weight):
+        self.name = name
+        self.height = height
+        self.weight = weight
+        self.tolerance = (height - weight)*float(random.randint(5, 20)/10)
+
+
+names = ["amin", "amir", "ali"]
+heights = [123, 125, 120]
+
+weights = [23, 30, 19]
+
+total = []
+for i in range(len(names)):
+    total.append(Tolerance(names[i], heights[i], weights[i]))
+
+i = 0
+j = 0
+
+total.sort(key=lambda x: x.tolerance, reverse=True)
+for item in total:
+    print(item.name, " : ", item.tolerance, " > ", end='')

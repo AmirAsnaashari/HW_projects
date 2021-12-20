@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* starting header style  */
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+header .nav {
+  width: 100%;
+  padding: 20px 0;
+  height: 40px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+header .navbar {
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+header .navbar ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0;
+  justify-content: end;
+  flex-direction: row-reverse;
+}
+
+header .navbar ul li:first-child a {
+  border-radius: 0 5px 5px 0;
+}
+
+header .navbar ul li:last-child a {
+  border-radius: 5px 0 0 5px;
+}
+
+header .navbar ul li a {
+  border: 1px solid black;
+  padding: 15px;
+}
+header .navbar ul li a:hover {
+  background-color: rgb(240, 236, 236);
+}
+.activate {
+  background-color: silver;
+}
+
+/* ending header style  */
+/* starting main style  */
+
+.container {
+  display: flex;
+  width: 95%;
+  /* text-align: center; */
+  flex-direction: row-reverse;
+  margin: auto;
+  margin-top: 20px;
+}
+.container .home {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 70%;
+  border: 1px solid black;
+  margin-left: 10px;
+}
+.container .home .title {
+  padding: 10px 20px 10px 10px;
+}
+.container .home .image-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.container .home .image-info img {
+  width: 40%;
+  height: 80%;
+  margin: 10px;
+}
+
+.container .home .image-info p {
+  border: 1px solid blue;
+  text-align: justify;
+  width: 60%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.container .home .information {
+  text-align: justify;
+  padding: 20px;
+}
+
+.container .home .images {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.container .home .images img {
+  width: 30%;
+}
+
+.container .sidebar {
+  border: 1px solid black;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.container .sidebar .player {
+  margin: 20px 0 10px 10px;
+  text-align: center;
+}
+.container .sidebar .player video {
+  width: 90%;
+  margin: auto;
+}
+
+.container .sidebar .search form.form-search {
+  display: flex;
+  margin: 50px 0;
+  justify-content: center;
+}
+.container .sidebar .search form.form-search input {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-radius: 100px 0 0 100px;
+  width: 65%;
+  background: #f1f1f1;
+  margin-left: 20px;
+}
+.container .sidebar .search form.form-search button {
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  border-radius: 0 100px 100px 0;
+}
+
+.container .sidebar .navbar-side {
+  margin: 10px 0;
+  width: 100%;
+}
+.container .sidebar .navbar-side ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  /* padding: 10px 0; */
+
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+}
+.container .sidebar .navbar-side ul li {
+  width: 100%;
+}
+.container .sidebar .navbar-side ul li a {
+  border: 1px solid black;
+  padding: 15px 0;
+  width: 100%;
+  display: flex;
+  padding-left: 20px;
+}
+.container .sidebar .navbar-side ul li a:hover {
+  background-color: rgb(240, 236, 236);
+}
+/* ending main style  */
+/* ----------------------------------------------- */
+/*starting footer style  */
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: green;
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+footer h5 {
+  padding: 20px;
+}
+
+/* ending footer style */
+
+@media only screen and (max-width: 1200px) {
+  .container .home .image-info {
+    flex-direction: column;
+    width: 100%;
+  }
+  .container .home .image-info img {
+    width: 90%;
+  }
+  .container .home .image-info p {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  header .navbar ul li a {
+    padding: 2px;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .container .home {
+    width: 100%;
+    margin: 0;
+  }
+  .container .sidebar {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .container .home .images {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 0;
+  }
+  .container .home .images img {
+    width: 80%;
+    margin: 10px 0 10px 0;
+  }
+}

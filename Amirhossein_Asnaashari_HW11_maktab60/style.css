@@ -1,0 +1,48 @@
+body{
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    font-family: 'Roboto', sans-serif;
+}
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 5rem auto;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #a19f9c;
+}
+button{
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .5s;
+}
+button:hover{
+    filter: brightness(80%);
+}
+.delete , .disable{
+    background-color: #db3646;
+    color: white;
+}
+.copy{
+    background-color: #6b7178;
+    color: white;
+}
+.modal{
+    background-color: #007bfd;
+    color: white;
+}
+.enable{
+    background-color: #29a746;
+    color: white;
+}
+.noSet{
+    background-color: #ffc30d;
+    color: black;
+}

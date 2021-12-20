@@ -1,0 +1,45 @@
+Question1:
+1)
+SELECT *
+FROM pg_catalog.pg_tables
+WHERE schemaname != 'pg_catalog' AND 
+    schemaname != 'information_schema';
+2)
+SELECT first_name, last_name
+FROM customer WHERE first_name like 'R%'
+OR last_name like '%n';
+3)
+SELECT address_id
+FROM address
+WHERE address_id>20;
+4)
+SELECT first_name
+FROM actor
+WHERE first_name='Nick'
+OR first_name='Bette'
+OR first_name='Ed';
+5)
+SELECT 
+DISTINCT first_name
+FROM actor
+ORDER BY first_name ASC;
+6)
+SELECT "return_date" - "rental_date" AS duration
+MIN(duration) AS min
+MAX(duration) AS max
+SUM(duration) AS sum
+FROM rental
+ORDER BY time;
+7)
+SELECT amount
+FROM payment
+ORDER BY payment_date;
+8)
+SELECT first_name, last_name,
+address, city_id,
+city, country
+from customer 
+left JOIN address USING(address_id)
+INNER join city USING(city_id)
+INNER JOIN country USING(country_id)
+ORDER BY country;

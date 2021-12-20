@@ -1,0 +1,29 @@
+هر مدلی که توی جنگو میسازیم، بصورت پیشفرض یه manager به اسم objects داره که توسط اون، همه اشیای موجود در دیتابیس رو استخراج میکنیم (توجه کنید: همه اشیای موجود).
+
+حالا اگه نخوایم همه چیز رو استخراج کنیم و فقط اطلاعات خاصی رو استخراج کنیم، به جایmanager پیشفرض، میتونیم خودمون بیایم و بنا به صلاحدید خودمون manager دلخواهمون رو تعریف کنیم.
+
+2 تا راه برای اضافه یا شخصی سازی کردن manager برای مدلمون وجود داره:
+
+متدهای managerمون رو به manager فعلی که داریم باهاش کار میکنیم اضافه کنیم.
+بیایم برای QuerySet اولیه ای که manager پیشفرض داره بر میگردونه manager رو override کنیم و یه manager جدید بسازیم.
+ 
+
+تو حالت اول، باید بیایم و از QuerySet API ا مربوطه اون یعنی ()Post.objects.my_manager استفاده کنیم.
+
+تو حالت دوم که اینجا باهاش کار داریم، QuerySet رو ما به این صورت خواهد شد:
+Post.my_manager.all()
+اینجا برای نمونه میخوایم یه manager شخصی سازی شده بنویسیم که همه پستهایی که منتشر شده ان ( published ) رو برامون استخراج کنه. پس باید در نهایت QuerySet ما همچین چیزی بشه:
+Post.published.all()
+برای اینکار از بین فایلهای اپلیکیشن blog،  فایل models.py رو باز کنین و کدهای زیر رو وارد کنین:
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status='published')
+
+class Post(models.Model):
+    # .... کدهای قبلی
+    objects = models.Manager() # .... منیجر پیشفرض
+    published = PublishedManager() # .... منیجری که ساختیم
+با این کار ما متد get_queryset موجود در django.db.models.manager رو override کردیم و عملکرد دلخواه خودمون رو براش تعریف کردیم.
+
+اولین manager ای که توی مدل تعریف بشه، به عنوان manager پیشفرض در نظر گرفته میشه، مگه اینکه با توی Meta خودتون بیاین و default_manager_name رو روی یه manager دیگه که تعریف کردین قرار بدید.

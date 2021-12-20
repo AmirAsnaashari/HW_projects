@@ -1,0 +1,14 @@
+1st query)
+from payment.models import ListOfCom
+from django.db.models import Avg
+ListOfCom.objects.filter(price__gt=ListOfCom.objects.all().aggregate(Avg("price"))['price__avg'])
+2nd query)
+from payment.models import Payment
+from django.db.models import Count
+Payment.objects.annotate(mc=Count('buyer')).order_by("-mc")[0].buyer
+3rd query)
+Payment.objects.annotate(mc=Count('comodity')).order_by("-mc")
+4th query)
+Payment.objects.annotate(mc=Count(F(""comodity__Category))).order_by("-mc")[0].comodity.Category
+5th query)
+Payment.objects.filter(order_date__week_day=2)
